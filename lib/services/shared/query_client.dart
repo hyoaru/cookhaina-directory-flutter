@@ -47,4 +47,8 @@ class QueryClient {
   Future<Map<String, dynamic>> getMeal({required String mealId}) async {
     return await _get('/lookup.php?i=$mealId');
   }
+
+  Future<Map<String, dynamic>> getMealsByCategory({required String categoryName}) async {
+    return await _get('/filter.php?c=$categoryName');
+  }
 }

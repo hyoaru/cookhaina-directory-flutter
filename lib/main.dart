@@ -1,3 +1,4 @@
+import 'package:cookhaina_directory/pages/search.dart';
 import 'package:flutter/material.dart';
 
 // App imports
@@ -20,7 +21,11 @@ class Main extends StatefulWidget {
 
 class _MainState extends State<Main> {
   int _selectedIndex = 0;
-  final List _pages = [const Home(), const Categories()];
+  final List _pages = [
+    const Home(),
+    const Categories(),
+    const Search(),
+  ];
 
   void onNavigationChange(int index) {
     setState(() {

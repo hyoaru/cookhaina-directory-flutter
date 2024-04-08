@@ -39,4 +39,8 @@ class QueryClient {
     final String randomMealCategory = response['data']['meals'][0]['strCategory'];
     return await _get('/filter.php?c=$randomMealCategory');
   }
+
+  Future<Map<String, dynamic>> getCategories() async {
+    return await _get('/categories.php');
+  }
 }

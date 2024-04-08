@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class BottomNavBar extends StatefulWidget {
-  const BottomNavBar({super.key});
+  final int selectedIndex;
+  final void Function(int index) onNavigationChange;
+  const BottomNavBar({super.key, required this.onNavigationChange, required this.selectedIndex});
 
   @override
   State<BottomNavBar> createState() => _BottomNavBarState();
@@ -18,6 +20,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      currentIndex: widget.selectedIndex,
+      onTap: widget.onNavigationChange,
       type: BottomNavigationBarType.fixed,
       showSelectedLabels: false,
       showUnselectedLabels: false,
@@ -29,3 +33,4 @@ class _BottomNavBarState extends State<BottomNavBar> {
     );
   }
 }
+

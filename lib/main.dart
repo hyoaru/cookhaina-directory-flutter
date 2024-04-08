@@ -1,55 +1,78 @@
+import 'package:cookhaina_directory/pages/categories.dart';
 import 'package:flutter/material.dart';
 
 // App imports
-import 'package:cookhaina_directory/utils/generate_material_color_from_rgb.dart';
+import 'package:cookhaina_directory/constants/base/constants.dart';
 import 'package:cookhaina_directory/widgets/base/bottom_nav_bar.dart';
 import 'package:cookhaina_directory/pages/home.dart';
 
 void main() {
-  MaterialColor primarySwatch = generateMaterialColorFromRGB(
-    red: 33,
-    green: 33,
-    blue: 33,
-    primaryShade: 900,
-  );
+  runApp(const Main());
+}
 
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    theme: ThemeData(
-      useMaterial3: true,
-      colorScheme: ColorScheme.fromSwatch(
-        backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
-        brightness: Brightness.light,
-        primarySwatch: primarySwatch,
-      ),
-    ),
-    home: Scaffold(
-      appBar: AppBar(
-        titleSpacing: 0,
-        scrolledUnderElevation: 0,
-        title: const Text(
-          'Cookhaina Directory',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 20,
-          ),
+class Main extends StatefulWidget {
+  const Main({super.key});
+
+  @override
+  State<Main> createState() => _MainState();
+}
+
+class _MainState extends State<Main> {
+  int _selectedIndex = 0;
+  final List _pages = [
+    const Home(),
+    const Categories()
+  ];
+
+  void onNavigationChange(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSwatch(
+          backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
+          brightness: Brightness.light,
+          primarySwatch: primarySwatch,
         ),
-        leading: const Icon(Icons.view_week),
       ),
-      bottomNavigationBar: const BottomNavBar(),
-      body: Scaffold(
-        body: SafeArea(
-          child: Container(
-            clipBehavior: Clip.hardEdge,
-            width: double.infinity,
-            margin: const EdgeInsets.fromLTRB(15, 10, 15, 10),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
+      home: Scaffold(
+        appBar: AppBar(
+          titleSpacing: 0,
+          scrolledUnderElevation: 0,
+          title: const Text(
+            'Cookhaina Directory',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
             ),
-            child: const Home(),
+          ),
+          leading: const Icon(Icons.view_week),
+        ),
+        bottomNavigationBar: BottomNavBar(
+          selectedIndex: _selectedIndex ,
+          onNavigationChange: onNavigationChange,
+        ),
+        body: Scaffold(
+          body: SafeArea(
+            child: Container(
+              clipBehavior: Clip.hardEdge,
+              width: double.infinity,
+              margin: const EdgeInsets.fromLTRB(15, 10, 15, 10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: _pages[_selectedIndex],
+            ),
           ),
         ),
       ),
-    ),
-  ));
+    );
+  }
 }

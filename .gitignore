@@ -42,9 +42,15 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
+
+# Files
+.metadata
+
+# Directories
 /android
 /ios
 /linux
 /macos
 /web
+/windows
 /test

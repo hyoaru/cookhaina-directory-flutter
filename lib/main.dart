@@ -1,10 +1,11 @@
-import 'package:cookhaina_directory/pages/categories.dart';
 import 'package:flutter/material.dart';
 
 // App imports
 import 'package:cookhaina_directory/constants/base/constants.dart';
 import 'package:cookhaina_directory/widgets/base/bottom_nav_bar.dart';
 import 'package:cookhaina_directory/pages/home.dart';
+import 'package:cookhaina_directory/pages/categories.dart';
+import 'package:cookhaina_directory/widgets/base/layout.dart';
 
 void main() {
   runApp(const Main());
@@ -19,10 +20,7 @@ class Main extends StatefulWidget {
 
 class _MainState extends State<Main> {
   int _selectedIndex = 0;
-  final List _pages = [
-    const Home(),
-    const Categories()
-  ];
+  final List _pages = [const Home(), const Categories()];
 
   void onNavigationChange(int index) {
     setState(() {
@@ -56,22 +54,10 @@ class _MainState extends State<Main> {
           leading: const Icon(Icons.view_week),
         ),
         bottomNavigationBar: BottomNavBar(
-          selectedIndex: _selectedIndex ,
+          selectedIndex: _selectedIndex,
           onNavigationChange: onNavigationChange,
         ),
-        body: Scaffold(
-          body: SafeArea(
-            child: Container(
-              clipBehavior: Clip.hardEdge,
-              width: double.infinity,
-              margin: const EdgeInsets.fromLTRB(15, 10, 15, 10),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: _pages[_selectedIndex],
-            ),
-          ),
-        ),
+        body: Layout(child: _pages[_selectedIndex]),
       ),
     );
   }

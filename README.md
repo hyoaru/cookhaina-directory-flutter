@@ -7,7 +7,7 @@ Project members:
 * Cabrera, Jen Jade B.
 * Rubia, Johaina
 
-Download the app: 
+Download the app: [cookhaina-directory.apk](https://github.com/monoaru/cookhaina-directory-flutter/releases/download/v1.0.0/cookhaina-directory.apk)
 
 ## Features
 * **Discover New Recipes:** Browse through a collection of recipes, curated to inspire your next meal.
@@ -18,23 +18,23 @@ Download the app:
 ## Preview
 <div style="display:flex">
   <div style="flex:1;padding-right:10px;">
-    <img src="previews/1.jpg" width="300"/>
+    <img src="previews/1.jpg" width="150"/>
   </div>
   <div style="flex:1;padding-right:10px;">
-    <img src="previews/2.jpg" width="300"/>
+    <img src="previews/2.jpg" width="150"/>
   </div>
   <div style="flex:1;">
-    <img src="previews/3.jpg" width="300"/>
+    <img src="previews/3.jpg" width="150"/>
   </div>
 </div>
 <div style="display:flex">
   <div style="flex:1;padding-right:10px;">
-    <img src="previews/4.jpg" width="300"/>
+    <img src="previews/4.jpg" width="150"/>
   </div>
   <div style="flex:1;">
-    <img src="previews/5.jpg" width="300"/>
+    <img src="previews/5.jpg" width="150"/>
   </div>
-  <div style="flex:1;width:300px;">
+  <div style="flex:1;width:150px;">
   </div>
 </div>
 

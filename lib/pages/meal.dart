@@ -1,3 +1,4 @@
+import 'package:cookhaina_directory/widgets/meal/youtube_frame.dart';
 import 'package:flutter/material.dart';
 
 // App imports
@@ -141,7 +142,39 @@ class _MealState extends State<Meal> {
                         index: index,
                       );
                     },
-                  )
+                  ),
+                  Builder(
+                    builder: (BuildContext context) {
+                      if (meal['strYoutube'] != null) {
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.fromLTRB(0, 20, 0, 10),
+                              child: const Text(
+                                'Video instructions:',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            Container(
+                              clipBehavior: Clip.hardEdge,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              child: YoutubeFrame(
+                                youtubeLink: meal['strYoutube'],
+                              ),
+                            )
+                          ],
+                        );
+                      } else {
+                        return Container();
+                      }
+                    },
+                  ),
                 ],
               );
             } else {

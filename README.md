@@ -16,30 +16,39 @@ Download the app: [cookhaina-directory.apk](https://github.com/monoaru/cookhaina
 * **Favorite:** Mark recipes as favorites to easily access them later. Whether it's a tried-and-true family recipe or a new discovery you loved, the Favorite feature lets you save and revisit recipes with just a tap or click.
 
 ## Preview
-<div style="display:flex">
-  <div style="flex:1;padding-right:10px;">
-    <img src="previews/1.jpg" width="150"/>
-  </div>
-  <div style="flex:1;padding-right:10px;">
-    <img src="previews/2.jpg" width="150"/>
-  </div>
-  <div style="flex:1;">
-    <img src="previews/3.jpg" width="150"/>
-  </div>
-</div>
-<div style="display:flex">
-  <div style="flex:1;padding-right:10px;">
-    <img src="previews/4.jpg" width="150"/>
-  </div>
-  <div style="flex:1;">
-    <img src="previews/5.jpg" width="150"/>
-  </div>
-  <div style="flex:1;width:150px;">
-  </div>
-</div>
+<p float="left">
+  <img src="previews/1.jpg" width="150" />
+  <img src="previews/2.jpg" width="150" />
+  <img src="previews/3.jpg" width="150" />
+</p>
+<p float="left">
+  <img src="previews/4.jpg" width="150" />
+  <img src="previews/5.jpg" width="150" />
+</p>
 
 ## License
 ```
+MIT License
+
+Copyright (c) 2024 hyoaru
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 ```
 
 ## Disclaimer

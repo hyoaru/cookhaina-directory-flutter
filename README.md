@@ -17,13 +17,11 @@ Download the app: [cookhaina-directory.apk](https://github.com/monoaru/cookhaina
 
 ## Preview
 <p float="left">
-  <img src="previews/1.jpg" width="150" />
-  <img src="previews/2.jpg" width="150" />
-  <img src="previews/3.jpg" width="150" />
-</p>
-<p float="left">
-  <img src="previews/4.jpg" width="150" />
-  <img src="previews/5.jpg" width="150" />
+  <img src="previews/1.jpg" width="250" />
+  <img src="previews/2.jpg" width="250" />
+  <img src="previews/3.jpg" width="250" />
+  <img src="previews/4.jpg" width="250" />
+  <img src="previews/5.jpg" width="250" />
 </p>
 
 ## License

@@ -7,7 +7,7 @@ Project members:
 * Cabrera, Jen Jade B.
 * Rubia, Johaina
 
-Download the app: [cookhaina-directory.apk](https://github.com/monoaru/cookhaina-directory-flutter/releases/download/v1.0.0/cookhaina-directory.apk)
+Download the app: [go to releases](https://github.com/monoaru/cookhaina-directory-flutter/releases)
 
 ## Features
 * **Discover New Recipes:** Browse through a collection of recipes, curated to inspire your next meal.

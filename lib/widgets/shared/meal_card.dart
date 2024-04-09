@@ -19,6 +19,7 @@ class _MealCardState extends State<MealCard> {
         builder: (context) => Meal(
           mealId: widget.meal['idMeal'],
           mealName: widget.meal['strMeal'],
+          mealThumbnail: widget.meal['strMealThumb'],
         ),
       ),
     );

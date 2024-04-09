@@ -1,4 +1,5 @@
-import 'package:cookhaina_directory/widgets/meal/youtube_frame.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:flutter/material.dart';
 
 // App imports
@@ -9,12 +10,20 @@ import 'package:cookhaina_directory/widgets/base/layout.dart';
 import 'package:cookhaina_directory/widgets/meal/instruction_tile.dart';
 import 'package:cookhaina_directory/widgets/meal/meal_image.dart';
 import 'package:cookhaina_directory/widgets/shared/pill.dart';
-import 'package:shimmer/shimmer.dart';
+import 'package:cookhaina_directory/context/favorite_box.dart';
+import 'package:cookhaina_directory/widgets/meal/youtube_frame.dart';
 
 class Meal extends StatefulWidget {
   final String mealId;
   final String mealName;
-  const Meal({super.key, required this.mealId, required this.mealName});
+  final String mealThumbnail;
+
+  const Meal({
+    super.key,
+    required this.mealId,
+    required this.mealName,
+    required this.mealThumbnail,
+  });
 
   @override
   State<Meal> createState() => _MealState();
@@ -23,12 +32,47 @@ class Meal extends StatefulWidget {
 class _MealState extends State<Meal> {
   late final QueryClient _queryClient;
   late final Future<Map<String, dynamic>> _mealQuery;
+  late final FavoriteBox _favoriteBox;
 
   @override
   void initState() {
     super.initState();
     _queryClient = QueryClient();
     _mealQuery = _queryClient.getMeal(mealId: widget.mealId);
+    _favoriteBox = FavoriteBox();
+  }
+
+  void onFavorite() async {
+    Map<String, dynamic> meal = {
+      "idMeal": widget.mealId,
+      "strMeal": widget.mealName,
+      "strMealThumb": widget.mealThumbnail,
+    };
+
+    Map<String, dynamic> response =
+        _favoriteBox.add(mealId: widget.mealId, meal: meal);
+
+    if (response['error'] != null) {
+      await Fluttertoast.showToast(
+        msg: response['error'],
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.TOP,
+        timeInSecForIosWeb: 2,
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        textColor: Theme.of(context).colorScheme.background,
+        fontSize: 16.0,
+      );
+    } else {
+      await Fluttertoast.showToast(
+        msg: "${widget.mealName} added to favorites.",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.TOP,
+        timeInSecForIosWeb: 2,
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        textColor: Theme.of(context).colorScheme.background,
+        fontSize: 16.0,
+      );
+    }
   }
 
   @override
@@ -46,7 +90,7 @@ class _MealState extends State<Meal> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: onFavorite,
         child: const Icon(Icons.favorite_rounded),
       ),
       body: Layout(

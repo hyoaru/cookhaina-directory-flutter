@@ -32,13 +32,14 @@ class _RandomMealCardState extends State<RandomMealCard>
   Widget build(BuildContext context) {
     super.build(context);
 
-    void onTap({required String mealId, required String mealName}) {
+    void onTap({required String mealId, required String mealName, required String mealThumbnail,}) {
       Navigator.push(
         context,
         MaterialPageRoute(
           builder: (context) => Meal(
             mealId: mealId,
             mealName: mealName,
+            mealThumbnail: mealThumbnail,
           ),
         ),
       );
@@ -53,6 +54,7 @@ class _RandomMealCardState extends State<RandomMealCard>
             onTap: () => onTap(
               mealId: randomMeal['idMeal'],
               mealName: randomMeal['strMeal'],
+              mealThumbnail: randomMeal['strMealThumb'],
             ),
             child: CachedNetworkImage(
                 imageUrl: randomMeal['strMealThumb'],

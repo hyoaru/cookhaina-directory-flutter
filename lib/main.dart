@@ -1,5 +1,5 @@
-import 'package:cookhaina_directory/pages/search.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 // App imports
 import 'package:cookhaina_directory/constants/base/constants.dart';
@@ -7,8 +7,11 @@ import 'package:cookhaina_directory/widgets/base/bottom_nav_bar.dart';
 import 'package:cookhaina_directory/pages/home.dart';
 import 'package:cookhaina_directory/pages/categories.dart';
 import 'package:cookhaina_directory/widgets/base/layout.dart';
+import 'package:cookhaina_directory/pages/search.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  await Hive.openBox('favorites');
   runApp(const Main());
 }
 

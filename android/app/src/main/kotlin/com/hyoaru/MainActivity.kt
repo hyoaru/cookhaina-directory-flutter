@@ -1,4 +1,4 @@
-package com.example.cookhaina_directory
+package com.hyoaru
 
 import io.flutter.embedding.android.FlutterActivity
 

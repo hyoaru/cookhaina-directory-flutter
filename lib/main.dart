@@ -8,6 +8,7 @@ import 'package:cookhaina_directory/pages/home.dart';
 import 'package:cookhaina_directory/pages/categories.dart';
 import 'package:cookhaina_directory/widgets/base/layout.dart';
 import 'package:cookhaina_directory/pages/search.dart';
+import 'package:cookhaina_directory/pages/favorites.dart';
 
 void main() async {
   await Hive.initFlutter();
@@ -28,6 +29,7 @@ class _MainState extends State<Main> {
     const Home(),
     const Categories(),
     const Search(),
+    const Favorites(),
   ];
 
   void onNavigationChange(int index) {

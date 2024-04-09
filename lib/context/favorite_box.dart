@@ -17,11 +17,7 @@ class FavoriteBox {
       "error": null,
     };
 
-    bool mealAlreadyExists = (
-      _box.get(mealId) != null 
-        ? true 
-        : false
-    );
+    bool mealAlreadyExists = (_box.get(mealId) != null ? true : false);
 
     if (!mealAlreadyExists) {
       _box.put(mealId, meal);
@@ -38,7 +34,7 @@ class FavoriteBox {
       "data": _box.get(mealId),
       "error": null,
     };
-    
+
     return response;
   }
 
@@ -49,11 +45,19 @@ class FavoriteBox {
       "data": _box.delete(mealId),
       "error": null,
     };
-    
+
     return response;
   }
 
-  List<dynamic> getAll() {
-    return _box.values.toList();
+  List<Map<String, dynamic>> getAll() {
+    List<Map<String, dynamic>> favorites = _box.values
+        .map((favorite) => {
+              "strMeal": favorite['strMeal'],
+              "strMealThumb": favorite['strMealThumb'],
+              "idMeal": favorite['idMeal'],
+            })
+        .toList();
+
+    return favorites;
   }
 }

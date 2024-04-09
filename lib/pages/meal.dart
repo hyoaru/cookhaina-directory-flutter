@@ -32,29 +32,31 @@ class Meal extends StatefulWidget {
 class _MealState extends State<Meal> {
   late final QueryClient _queryClient;
   late final Future<Map<String, dynamic>> _mealQuery;
-  late final FavoriteBox _favoriteBox;
 
   @override
   void initState() {
     super.initState();
     _queryClient = QueryClient();
     _mealQuery = _queryClient.getMeal(mealId: widget.mealId);
-    _favoriteBox = FavoriteBox();
   }
 
-  void onFavorite() async {
+  @override
+  Widget build(BuildContext context) {
+    FavoriteBox favoriteBox = FavoriteBox();
+
+    void onFavorite() async {
     Map<String, dynamic> meal = {
       "idMeal": widget.mealId,
       "strMeal": widget.mealName,
       "strMealThumb": widget.mealThumbnail,
     };
 
-    Map<String, dynamic> response =
-        _favoriteBox.add(mealId: widget.mealId, meal: meal);
+    Map<String, dynamic> onAddResponse =
+        favoriteBox.add(mealId: widget.mealId, meal: meal);
 
-    if (response['error'] != null) {
+    if (onAddResponse['error'] == null) {
       await Fluttertoast.showToast(
-        msg: response['error'],
+        msg: "${widget.mealName} added favorites.",
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.TOP,
         timeInSecForIosWeb: 2,
@@ -63,8 +65,9 @@ class _MealState extends State<Meal> {
         fontSize: 16.0,
       );
     } else {
+      favoriteBox.delete(mealId: widget.mealId);
       await Fluttertoast.showToast(
-        msg: "${widget.mealName} added to favorites.",
+        msg: "Removed from favorites.",
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.TOP,
         timeInSecForIosWeb: 2,
@@ -75,8 +78,6 @@ class _MealState extends State<Meal> {
     }
   }
 
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         titleSpacing: 0,

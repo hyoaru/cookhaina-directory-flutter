@@ -2,13 +2,23 @@ import 'package:cookhaina_directory/context/favorite_box.dart';
 import 'package:cookhaina_directory/widgets/shared/meal_card.dart';
 import 'package:flutter/material.dart';
 
-class Favorites extends StatelessWidget {
+class Favorites extends StatefulWidget {
   const Favorites({super.key});
 
   @override
+  State<Favorites> createState() => _FavoritesState();
+}
+
+class _FavoritesState extends State<Favorites> {
+  @override
   Widget build(BuildContext context) {
+    FocusScopeNode currentFocus = FocusScope.of(context);
     final FavoriteBox favoriteBox = FavoriteBox();
-    List<Map<String, dynamic>> favorites = favoriteBox.getAll();
+    late List<Map<String, dynamic>> favorites = [];
+
+    if (currentFocus.hasPrimaryFocus) {
+      favorites = favoriteBox.getAll();
+    }
 
     return ListView(
       children: [

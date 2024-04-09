@@ -22,6 +22,8 @@ class FavoriteBox {
     if (!mealAlreadyExists) {
       _box.put(mealId, meal);
       response['data'] = meal;
+    } else {
+      response['error'] = "Already has in favorites.";
     }
 
     return response;

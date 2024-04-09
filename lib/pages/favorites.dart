@@ -14,7 +14,7 @@ class _FavoritesState extends State<Favorites> {
   Widget build(BuildContext context) {
     FocusScopeNode currentFocus = FocusScope.of(context);
     final FavoriteBox favoriteBox = FavoriteBox();
-    late List<Map<String, dynamic>> favorites = [];
+    late List<Map<String, dynamic>> favorites = favoriteBox.getAll();
 
     if (currentFocus.hasPrimaryFocus) {
       favorites = favoriteBox.getAll();

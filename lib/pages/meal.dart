@@ -204,14 +204,11 @@ class _MealState extends State<Meal> {
                                 ),
                               ),
                             ),
+                            YoutubeFrame(
+                              youtubeLink: meal['strYoutube'],
+                            ),
                             Container(
-                              clipBehavior: Clip.hardEdge,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              child: YoutubeFrame(
-                                youtubeLink: meal['strYoutube'],
-                              ),
+                              height: 80,
                             )
                           ],
                         );

@@ -51,4 +51,14 @@ class QueryClient {
   Future<Map<String, dynamic>> getMealsByCategory({required String categoryName}) async {
     return await _get('/filter.php?c=$categoryName');
   }
+
+  Future<Map<String, dynamic>> getMealsByMainIngredient({required String mainIngredient}) async {
+    final String formattedKeyword = mainIngredient.replaceAll(' ', '_');
+    return await _get('/filter.php?i=$formattedKeyword');
+  }
+
+  Future<Map<String, dynamic>> getMealsByName({required String mealName}) async {
+    final String formattedKeyword = mealName.replaceAll(' ', '_');
+    return await _get('/search.php?s=$formattedKeyword');
+  }
 }

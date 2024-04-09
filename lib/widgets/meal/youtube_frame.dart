@@ -19,7 +19,7 @@ class _YoutubeFrameState extends State<YoutubeFrame> {
       initialVideoId: YoutubePlayer.convertUrlToId(widget.youtubeLink)!,
       flags: const YoutubePlayerFlags(
         autoPlay: false,
-        mute: true,
+        mute: false,
       ),
     );
   }
@@ -28,7 +28,7 @@ class _YoutubeFrameState extends State<YoutubeFrame> {
   Widget build(BuildContext context) {
     return YoutubePlayer(
       controller: _controller,
-      showVideoProgressIndicator: true,
+      
     );
   }
 }
